@@ -15,7 +15,7 @@ LEFT JOIN
 			person_contact_type pct ON pc.type_id = pct.id
 		WHERE
 			pc.person_id = p.id
-		ORDER BY pct.precedence
+		ORDER BY pct.precedence DESC
 		LIMIT 1
 	)
 LEFT JOIN
