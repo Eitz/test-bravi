@@ -1,3 +1,11 @@
-# Running
+# Instalação
 
-npm start
+$ npm install
+
+# Rodando em ambiente Dev
+
+$ npm start
+
+# Compilando para produção
+
+$ npm run build
