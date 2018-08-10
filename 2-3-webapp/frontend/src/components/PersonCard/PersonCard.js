@@ -39,7 +39,7 @@ class PersonCard extends PureComponent {
 					<div className="Content">
 						<div className="Info">
 							<h3 className="Name">{person.name}</h3>
-							<p className="MainContact">{ person.mainContact.type? person.mainContact.type + ':' : '' } {person.mainContact.info || <small>Nenhum contato registrado até o momento</small>}</p>
+							<p className="MainContact">{ person.mainContact.typeName? person.mainContact.typeName + ':' : '' } {person.mainContact.info || <small>Nenhum contato registrado até o momento</small>}</p>
 						</div>
 					</div>
 					{

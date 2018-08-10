@@ -2,7 +2,8 @@ SELECT
 	p.id,
 	p.name,
 	c.info AS contact_info,
-	ct.name AS contact_type
+	ct.name AS contact_typeName,
+	ct.id AS contact_type
 FROM
 	person p
 LEFT JOIN
