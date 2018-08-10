@@ -1,6 +1,6 @@
 import request from './request';
 
-const PUBLIC_URL = process.env.PUBLIC_URL || 'http://localhost:5000';
+const PUBLIC_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
 
 export const actionsList = {
 	LOAD_PERSONS: 'LOAD_PERSONS',
