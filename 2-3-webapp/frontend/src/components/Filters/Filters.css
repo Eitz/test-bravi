@@ -1,0 +1,29 @@
+.FormPesquisa {
+ max-width: 460px;
+ margin: 2em auto;
+}
+
+.FormPesquisa label {  
+ margin-bottom: 0.5em;
+ display: block;
+}
+
+.FormPesquisa input {
+ padding: 5px 8px;
+ width: 80%;
+ margin-right: 2%;
+ border-radius: 3px;
+ border: 1px solid #CCC;
+ font-size: 16px;
+}
+
+.FormPesquisa .input-inline {
+ margin-top: 0;
+ display: flex;
+ position: relative;
+}
+
+.FormPesquisa .Limpar {
+ margin-left: 10px;
+}
+

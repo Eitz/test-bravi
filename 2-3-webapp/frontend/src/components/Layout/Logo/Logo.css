@@ -1,0 +1,19 @@
+.Logo {
+ width: 30px;
+ margin: 10px;
+ margin-left: 0;
+ vertical-align: middle;
+ position: relative;
+ top: -2px;
+ height: 30px;
+}
+
+.Logo image {
+ width: 30px;
+ height: 30px;
+}
+
+.Logo path {
+ fill: var(--main-color);
+ stroke: var(--main-color);
+}

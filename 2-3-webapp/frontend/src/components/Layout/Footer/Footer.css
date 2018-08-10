@@ -1,0 +1,42 @@
+.Footer {
+ width: 100%;
+ background: var(--main-color);
+ flex-shrink: 0;
+ text-align: center;
+}
+.Footer ol {
+ display: inline-block;
+ margin: 0;
+ padding: 0;
+ line-height: 0;
+ font-size: 0.85em; 
+ width: 100%;
+}
+.Footer ol li {
+ display: inline;
+ margin: 0;
+ padding: 0;
+}
+
+.Footer ol li::after {
+ content: '|';
+ color: #DDD;
+ font-size: 1em;
+ position: relative;
+ top: -1px;
+ margin-left: 2em;
+ margin-right: 2em;
+}
+
+.Footer ol li:last-of-type::after {
+ content: '';
+}
+
+.Footer a {
+ font-size: 1.25em;
+ line-height: 3em;
+ color: #FFF;
+}
+.Footer a:hover {
+ color: #EEE;
+}

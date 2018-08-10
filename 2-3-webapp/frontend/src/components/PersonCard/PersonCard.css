@@ -1,0 +1,74 @@
+.PersonCard {
+ margin-top: 0;
+ margin-bottom: 1.5em;
+ box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+ border-radius: 5px;
+ clear: both;
+ display: flex;
+ padding: 0;
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+.PersonCard:hover {
+ box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+.PersonCard .ImageWrapper {
+ flex: 0 0 150px;
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+}
+
+.PersonCard .Image {
+ background-color: #EEE;
+ background-size: cover;
+ background-position: center center;
+ width: 100%;
+ height: 100%;
+ border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+}
+
+.PersonCard .Content {
+ flex: 1 1;
+}
+
+.PersonCard .Content .Name {
+ margin: 0.5em 1em;
+ font-weight: 700;
+ margin-bottom: 0;
+}
+
+.PersonCard .Content .MainContact {
+ margin: 0.55em 1.2em;
+}
+
+.PersonCard .MoreInfo {
+ flex: 0 0 100px;
+ text-align: center;
+}
+
+.PersonCard .MoreInfo.Expand {
+ font-size: 1em;
+ border: 0;
+ background-color: #EEE;
+ cursor: pointer;
+ color: var(--main-color); 
+ font-weight: 700;
+ padding: 0 0.5em;
+ border: 1px solid transparent;
+ transition: 0.5s;
+ display: flex;
+ flex-direction:column;
+ justify-content:center;
+ align-content:center;
+ border-top-right-radius: 5px;
+ border-bottom-right-radius: 5px;
+ line-height: 1.5em;
+}
+
+.PersonCard .MoreInfo.Expand:hover {
+ color: var(--main-color-hover);
+ background: rgba(0,0,0,0.05);
+ border: 1px solid var(--main-color);
+}

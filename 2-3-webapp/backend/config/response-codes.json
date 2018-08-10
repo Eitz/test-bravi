@@ -1,0 +1,9 @@
+{
+	"ERR" : "There was an error. Sorry. Error code: ",
+	"ERR_SERVER_ERROR" : "Unexpected error.",
+	"ERR_NOT_FOUND" : "Resource not found",
+
+	"ERR_INVALID_FIELD_NAME" : "O nome informado não é um nome válido",
+	"ERR_FOREIGN_KEY_VIOLATION_FK_PERSON_CONTACT_PERSON" : "O id de pessoa informado não é válido",
+	"ERR_INVALID_FIELD_CONTACT_INFO" : "Dado inválido"
+}

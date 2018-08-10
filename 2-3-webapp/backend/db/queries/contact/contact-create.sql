@@ -1,0 +1,1 @@
+INSERT INTO person_contact (person_id, type_id, info) VALUES (:person_id, :type, :info);

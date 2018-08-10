@@ -1,0 +1,41 @@
+.Breadcrumb {
+ margin-bottom: 2em;
+ width: 100%;
+ background: var(--main-color);
+}
+.Breadcrumb ol {
+ display: inline-block;
+ margin: 0;
+ padding: 0;
+ line-height: 0;
+ font-size: 0.75em; 
+ width: 100%;
+}
+
+.Breadcrumb-item {
+ display: inline;
+ margin: 0;
+ padding: 0;
+}
+
+.Breadcrumb-item::after {
+ content: '/';
+ color: #DDD;
+ font-size: 10px;
+ position: relative;
+ top: -1px;
+ margin-left: 10px;
+ margin-right: 10px;
+}
+
+.Breadcrumb-item:last-of-type::after {
+ content: '';
+}
+
+.Breadcrumb-item a {
+ line-height: 3em;
+ color: #FFF;
+}
+.Breadcrumb-item a:hover {
+ color: #EEE;
+}

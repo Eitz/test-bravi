@@ -1,0 +1,58 @@
+.FormPerson label {  
+	margin-bottom: 0.5em;
+	display: block;
+}
+
+.FormPerson input {
+	padding: 8px 8px;
+	width: 100%;
+	margin-right: 2%;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	font-size: 16px;
+}
+
+.FormPerson .Primary.Remove {
+	position: relative;
+	top: -2px;
+}
+
+.FormPerson p {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+.FormPerson .inline {
+	display: inline-block;
+	width: auto;
+}
+
+.FormPerson label.inline {
+	padding-right: 0.5em;
+	padding-left: 1em;
+	margin-bottom: 0;
+}
+.FormPerson label.inline:first-of-type {
+	padding-left: 0;
+}
+
+.FormPerson hr {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.FormPerson hr.inner {
+	border-color: #FEFEFE;
+	border-width: 1px;
+	border-bottom: 0px;
+	margin-right: 15%;
+}
+
+.FormPerson .Contact input {
+	font-size: 14px;
+	width: 45%;
+}
+
+.FormPerson .TextError {
+	color: #F66;
+}

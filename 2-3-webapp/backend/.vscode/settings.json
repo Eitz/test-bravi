@@ -1,0 +1,15 @@
+// Workspace settings
+{
+ 
+  "eslint.options": { "configFile": "./config/.eslintrc.json" },
+
+  "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+ 
+  // The following will hide the js and map files in the editor
+    "files.exclude": {
+        ".vscode/": true,
+        "node_modules": true
+    }
+}

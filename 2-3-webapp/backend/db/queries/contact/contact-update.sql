@@ -1,0 +1,1 @@
+UPDATE person_contact SET info = :info, type_id = :type WHERE person_id = :person_id AND id = :id
