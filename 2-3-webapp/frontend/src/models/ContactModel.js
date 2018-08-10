@@ -3,9 +3,11 @@ export default class ContactModel {
 		/** @type {string} */
 		this.info = props.info;
 		/** @type {string} */
+		this.typeName = props.typeName;
+		/** @type {Integer} */
 		this.type = props.type;
 		/** @type {Integer} */
-		this.id = props.id;	
+		this.id = props.type;	
 	}
 
 	get icon() {
