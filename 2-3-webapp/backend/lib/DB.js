@@ -32,8 +32,6 @@ module.exports = class DB {
 			...additionalParameters
 		};
 
-		// console.log(connectionOptions);
-
 		let pool = mysql.createPool(connectionOptions);
 
 		return pool.getConnection()
