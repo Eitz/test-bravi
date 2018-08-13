@@ -2,5 +2,8 @@
 
 Neste repositório contém os 3 testes requisitados. Cada subpasta contém um arquivo README explicando o seu funcionamento ou instalação.
 
-### Nota
-Apesar de existir arquivos Docker no repositório, não consegui deixar ele rodando para apresentar até a data limite. Então, por enquanto, desconsiderem.
+# Rodando como containeres docker
+
+Tendo docker instalado na maquina, é possível rodar todos os serviços de uma vez através do seguinte comando (após acessar esta pasta): 
+
+`$ docker-compose up`
