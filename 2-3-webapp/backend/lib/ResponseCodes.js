@@ -40,21 +40,21 @@ module.exports = class ResponseCodes {
 		let matches;
 		let key;
 		switch (mysqlError.code) {
-			case 'ER_DUP_ENTRY':
-				matches = mysqlError.message.match(new RegExp(/for key \'(.*?)\'/));
-				key = matches ? matches[1] : null;
-				return 'ERR_DUPLICATE_ENTRY' + (key ? '_' + key.toUpperCase() : '');
-			case 'ER_NO_REFERENCED_ROW':
-			case 'ER_ROW_IS_REFERENCED':
-				matches = mysqlError.message.match(new RegExp(/CONSTRAINT \`(.*?)\`/));
-				key = matches ? matches[1] : null;
-				if (!dontPrintError)
-					console.log('\x1b[33m[mysql/warn]\x1b[39m ' + mysqlError.message);
-				return 'ERR_FOREIGN_KEY_VIOLATION' + (key ? '_' + key.toUpperCase() : '');
-			default:
-				if (!dontPrintError)
-					console.warn(`[\x1b[33m[server/warn]\x1b[39m Error message isn't filtered in ResponseCodes.js for ${mysqlError.code} (${mysqlError.message}).`);
-				return undefined;
+		case 'ER_DUP_ENTRY':
+			matches = mysqlError.message.match(new RegExp(/for key \'(.*?)\'/));
+			key = matches ? matches[1] : null;
+			return 'ERR_DUPLICATE_ENTRY' + (key ? '_' + key.toUpperCase() : '');
+		case 'ER_NO_REFERENCED_ROW':
+		case 'ER_ROW_IS_REFERENCED':
+			matches = mysqlError.message.match(new RegExp(/CONSTRAINT \`(.*?)\`/));
+			key = matches ? matches[1] : null;
+			if (!dontPrintError)
+				console.log('\x1b[33m[mysql/warn]\x1b[39m ' + mysqlError.message);
+			return 'ERR_FOREIGN_KEY_VIOLATION' + (key ? '_' + key.toUpperCase() : '');
+		default:
+			if (!dontPrintError)
+				console.warn(`[\x1b[33m[server/warn]\x1b[39m Error message isn't filtered in ResponseCodes.js for ${mysqlError.code} (${mysqlError.message}).`);
+			return undefined;
 		}
 	}
 };

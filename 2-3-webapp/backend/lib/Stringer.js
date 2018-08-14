@@ -9,7 +9,9 @@ module.exports = class Stringer {
 			].join('/');
 		} else if (typeof date == 'string' && date) {
 			let split = date.split('-');
-			return split[2] + '/' + (split[1]) < 10 ? '0' + (split[1]) : (split[1]) + '/' + split[0];
+			return split[2] + '/' + ((split[1]) < 10 ? '0' + (parseInt(split[1])) : (split[1])) + '/' + split[0];
+		} else {
+			return null;
 		}
 	}
 
@@ -21,11 +23,12 @@ module.exports = class Stringer {
 	}
 
 	static normalizeEmail(data) {
+		data = data.replace(/\s/, '');
 		return data.toLowerCase();
 	}
 
 	static normalizeName(data) {
-		if (!data || typeof data != 'string') return;
+		if (!data) return null;
 
 		let ignoredWords = ['dos', 'das'];
 		data = data.toLowerCase();
@@ -42,18 +45,18 @@ module.exports = class Stringer {
 	}
 
 	static capitalizeFirst(data) {
-		if (!data) return;
+		if (!data) return null;
 		return (data[0].toUpperCase() + data.slice(1));
 	}
 
 	static normalizePhone(data) {
-		if (!data) return undefined;
+		if (!data) return null;
 
 		data = data.replace(/\D/g, '');
 
 		let regex = /^(\(?[0-9]{2}\)?)\s?([9]{1})?([0-9]{4})[- ]?([0-9]{4,5})$/;
 
-		if (!regex.test(data)) return undefined;
+		if (!regex.test(data)) return null;
 
 		return data.replace(regex, '($1) $2$3-$4');
 	}

@@ -10,7 +10,7 @@ const DB_PORT = process.env.MYSQL_PORT || DB_SOURCE.port || 3306;
 const DB_USER = process.env.MYSQL_USER || DB_SOURCE.user || 'root';
 const DB_PASS = process.env.MYSQL_PASS || DB_SOURCE.password;
 
-let connectionPool;
+let instance;
 
 module.exports = class DB {
 
@@ -33,10 +33,10 @@ module.exports = class DB {
 		};
 
 		let pool = mysql.createPool(connectionOptions);
-
+		
 		return pool.getConnection()
 			.then(connection => {
-				DB.setMySQLPool(pool);
+				instance = new DB(pool);
 				console.log(`\x1b[33m[mysql]\x1b[39m Connection estabilished with ${DB_SOURCE.host}:${DB_SOURCE.port}`);
 				connection.release();
 			})
@@ -49,6 +49,14 @@ module.exports = class DB {
 			});
 	}
 
+	/**
+	 * @returns {ConnectionPool}
+	 */
+	static getMySQL() {
+		return instance.connectionPool;
+	}
+
+	/** @private */
 	static getMySQLParseMethod(type) {
 		if (type === 'object') {
 			return function (query, values) {
@@ -63,14 +71,9 @@ module.exports = class DB {
 		}
 	}
 
-	static setMySQLPool(connection) {
-		connectionPool = connection;
-	}
-
-	/**
-	 * @returns {ConnectionPool}
-	 */
-	static getMySQL() {
-		return connectionPool;
+	/** @private */
+	constructor (connection) {
+		this.connectionPool = connection;
+		instance = this;
 	}
 };

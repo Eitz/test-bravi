@@ -44,7 +44,7 @@ module.exports = class Validate {
 	static isName(name) {
 		if (!name)
 			return false;
-		let regex = /^[a-zàáèéìíòóùúãõâêîôûü\'\´\s]+$/i;
+		let regex = /^[a-zàáèéìíòóùúãõâêîôûü\'\´\s.]+$/i;
 		return regex.test(name);
 	}
 	/**
@@ -71,16 +71,16 @@ module.exports = class Validate {
 
 	static contactInfo(type, info) {
 		switch (type) {
-			case 1:
-				return Validate.isEmail(info);
-			case 2:
-			case 3:
-			case 4:
-				return Validate.isPhone(info);
-			case 5:
-				return Validate.isSlug(info);
-			default:
-				return false;
+		case 1:
+			return Validate.isEmail(info);
+		case 2:
+		case 3:
+		case 4:
+			return Validate.isPhone(info);
+		case 5:
+			return Validate.isSlug(info);
+		default:
+			return false;
 		}
 	}
 };
