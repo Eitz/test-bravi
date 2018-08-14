@@ -1,13 +1,20 @@
 import React, { PureComponent } from 'react';
-// import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-// import {  } from '../../store/actions';
 
 import './PersonCard.css';
 
 class PersonCard extends PureComponent {
+
+	prepareContacts() {
+		if (this.props.showDetails && this.props.person.contacts) {
+			return this.props.person.contacts.map((contact, idx) => (
+				<p key={idx}>
+					{contact.typeName}: {contact.info}
+				</p>
+			));
+		}
+		return null;
+	}
 
 	render() {
 
@@ -16,20 +23,7 @@ class PersonCard extends PureComponent {
 		};
 
 		let person = this.props.person;
-		person.mainContact = person.mainContact || person.contacts[0];
-
-		let contacts = [];
-
-		if (this.props.showDetails) {
-			person.contacts = person.contacts || [];
-
-			contacts = person.contacts.map((contact, idx) => (
-				<p key={idx}>
-					{contact.typeName}: {contact.info}
-				</p>
-			));
-		}
-
+	
 		return (
 			<React.Fragment>
 				<div className="PersonCard">
@@ -50,16 +44,11 @@ class PersonCard extends PureComponent {
 							: null
 					}
 				</div>
-				{contacts}
+				{this.prepareContacts()}
 			</React.Fragment>
 		);
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		// pesquisarLeis: bindActionCreators(pesquisarLeis, dispatch)
-	};
-}
 
-export default connect(null, mapDispatchToProps)(PersonCard);
+export default PersonCard;

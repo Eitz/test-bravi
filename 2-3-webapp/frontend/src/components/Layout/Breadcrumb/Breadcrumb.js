@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-// import reactStringReplace from 'react-string-replace';
-
 import { Link } from 'react-router-dom';
 
 import StructuralContainer from '../StructuralContainer/StructuralContainer';
@@ -15,11 +13,6 @@ export default class Breadcrumb extends PureComponent {
 			return (
 				<li key={index} className={`Breadcrumb-item ${isLast ? 'active' : ''}`}>
 					<Link to={link.to}>
-						{/*reactStringReplace(link.text, new RegExp(/\{\{.+?\}\}/g), (match, i) => (
-       <Fragment>
-        <span className="hide-mobile" key={i}>{match}</span> {link.text.replace(match, '')}
-       </Fragment>
-      ))*/}
 						{link.text}
 					</Link>
 				</li>

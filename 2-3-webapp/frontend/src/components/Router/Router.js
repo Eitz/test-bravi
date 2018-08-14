@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// paginas
+// Pages
 import Home from '../../containers/Pages/Home/Home';
 import PersonList from '../../containers/Pages/PersonList/PersonList';
 import NotFound from '../../containers/Pages/NotFound/NotFound';
