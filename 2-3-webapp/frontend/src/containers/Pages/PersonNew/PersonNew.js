@@ -10,7 +10,7 @@ import { createPerson, finalizePersonOperation } from '../../../store/actions';
 
 import StructuralContainer from '../../../components/Layout/StructuralContainer/StructuralContainer';
 import Breadcrumb from '../../../components/Layout/Breadcrumb/Breadcrumb';
-import FormPerson from '../../../components/FormPerson/FormPerson';
+import PersonForm from '../../../components/PersonForm/PersonForm';
 
 class PersonNew extends Component {
 
@@ -42,7 +42,7 @@ class PersonNew extends Component {
 					<aside></aside>
 					<article className="PersonNew">
 						<h1>Registrar nova pessoa</h1>
-						<FormPerson personOperation={this.props.personOperation} onSubmit={person => this.onSubmit(person)}/>
+						<PersonForm personOperation={this.props.personOperation} onSubmit={person => this.onSubmit(person)}/>
 					</article>
 				</StructuralContainer>
 			</React.Fragment>

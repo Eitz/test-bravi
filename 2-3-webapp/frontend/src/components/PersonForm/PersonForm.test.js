@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App/App';
-import FormPerson from './FormPerson';
+import PersonForm from './PersonForm';
 
-describe('FormPerson', () => {
+describe('PersonForm', () => {
 	it('renders without crashing', () => {
 		const div = document.createElement('div');
 		ReactDOM.render((
-			<FormPerson person={{}} personOperation={{}}/>
+			<PersonForm person={{}} personOperation={{}}/>
 		), div);
 		ReactDOM.unmountComponentAtNode(div);
 	 });

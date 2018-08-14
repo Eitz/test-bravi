@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 // import MaskedInput from 'react-text-mask';
 
-import './FormPerson.css';
+import './PersonForm.css';
 
-export default class FormPerson extends Component {
+export default class PersonForm extends Component {
 
 	state = {
 		person: {
@@ -128,7 +128,7 @@ export default class FormPerson extends Component {
 		));
 
 		return (
-			<form className="FormPerson" onSubmit={(e) => this.onSubmit(e)}>
+			<form className="PersonForm" onSubmit={(e) => this.onSubmit(e)}>
 				<label> Nome {this.renderError('name')} </label>
 				<input type="text" value={this.state.person.name} onChange={e => this.handleNameChange(e.target.value)} placeholder="Ex: Joe Doe" />
 				<p> Contatos desta pessoa </p>
