@@ -8,22 +8,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema bravi-test
+-- Schema contacts_test
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `bravi-test` ;
+DROP SCHEMA IF EXISTS `contacts_test` ;
 
 -- -----------------------------------------------------
--- Schema bravi-test
+-- Schema contacts_test
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `bravi-test` DEFAULT CHARACTER SET utf8 ;
-USE `bravi-test` ;
+CREATE SCHEMA IF NOT EXISTS `contacts_test` DEFAULT CHARACTER SET utf8 ;
+USE `contacts_test` ;
 
 -- -----------------------------------------------------
--- Table `bravi-test`.`person`
+-- Table `contacts_test`.`person`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bravi-test`.`person` ;
+DROP TABLE IF EXISTS `contacts_test`.`person` ;
 
-CREATE TABLE IF NOT EXISTS `bravi-test`.`person` (
+CREATE TABLE IF NOT EXISTS `contacts_test`.`person` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -32,11 +32,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bravi-test`.`person_contact_type`
+-- Table `contacts_test`.`person_contact_type`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bravi-test`.`person_contact_type` ;
+DROP TABLE IF EXISTS `contacts_test`.`person_contact_type` ;
 
-CREATE TABLE IF NOT EXISTS `bravi-test`.`person_contact_type` (
+CREATE TABLE IF NOT EXISTS `contacts_test`.`person_contact_type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `precedence` INT NOT NULL DEFAULT 0,
@@ -45,28 +45,27 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bravi-test`.`person_contact`
+-- Table `contacts_test`.`person_contact`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bravi-test`.`person_contact` ;
+DROP TABLE IF EXISTS `contacts_test`.`person_contact` ;
 
-CREATE TABLE IF NOT EXISTS `bravi-test`.`person_contact` (
+CREATE TABLE IF NOT EXISTS `contacts_test`.`person_contact` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `person_id` INT NOT NULL,
   `type_id` INT NOT NULL,
   `info` VARCHAR(255) NOT NULL,
-  `main` TINYINT NOT NULL DEFAULT 0,
   `created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_person_contact_person_idx` (`person_id` ASC),
   INDEX `fk_person_contact_person_contact_type1_idx` (`type_id` ASC),
   CONSTRAINT `fk_person_contact_person`
     FOREIGN KEY (`person_id`)
-    REFERENCES `bravi-test`.`person` (`id`)
+    REFERENCES `contacts_test`.`person` (`id`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_person_contact_person_contact_type1`
     FOREIGN KEY (`type_id`)
-    REFERENCES `bravi-test`.`person_contact_type` (`id`)
+    REFERENCES `contacts_test`.`person_contact_type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -77,39 +76,39 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `bravi-test`.`person`
+-- Data for table `contacts_test`.`person`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `bravi-test`;
-INSERT INTO `bravi-test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Bob Lee', DEFAULT);
-INSERT INTO `bravi-test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Robert Johnson', DEFAULT);
-INSERT INTO `bravi-test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Joe Doe', DEFAULT);
+USE `contacts_test`;
+INSERT INTO `contacts_test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Bob Lee', DEFAULT);
+INSERT INTO `contacts_test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Robert Johnson', DEFAULT);
+INSERT INTO `contacts_test`.`person` (`id`, `name`, `created`) VALUES (DEFAULT, 'Joe Doe', DEFAULT);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `bravi-test`.`person_contact_type`
+-- Data for table `contacts_test`.`person_contact_type`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `bravi-test`;
-INSERT INTO `bravi-test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'E-mail', 2);
-INSERT INTO `bravi-test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Celular', 3);
-INSERT INTO `bravi-test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Telefone Fixo', DEFAULT);
-INSERT INTO `bravi-test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'WhatsApp', 1);
-INSERT INTO `bravi-test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Skype', DEFAULT);
+USE `contacts_test`;
+INSERT INTO `contacts_test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'E-mail', 2);
+INSERT INTO `contacts_test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Celular', 3);
+INSERT INTO `contacts_test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Telefone Fixo', DEFAULT);
+INSERT INTO `contacts_test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'WhatsApp', 1);
+INSERT INTO `contacts_test`.`person_contact_type` (`id`, `name`, `precedence`) VALUES (DEFAULT, 'Skype', DEFAULT);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `bravi-test`.`person_contact`
+-- Data for table `contacts_test`.`person_contact`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `bravi-test`;
-INSERT INTO `bravi-test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `main`, `created`) VALUES (DEFAULT, 1, 1, 'my-email@test.com', DEFAULT, NULL);
-INSERT INTO `bravi-test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `main`, `created`) VALUES (DEFAULT, 1, 2, '047 98636-4550', 1, NULL);
-INSERT INTO `bravi-test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `main`, `created`) VALUES (DEFAULT, 2, 1, 'rabbit@hole.deep', 0, NULL);
+USE `contacts_test`;
+INSERT INTO `contacts_test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `created`) VALUES (DEFAULT, 1, 1, 'my-email@test.com', NULL);
+INSERT INTO `contacts_test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `created`) VALUES (DEFAULT, 1, 2, '047 98636-4550', NULL);
+INSERT INTO `contacts_test`.`person_contact` (`id`, `person_id`, `type_id`, `info`, `created`) VALUES (DEFAULT, 2, 1, 'rabbit@hole.deep', NULL);
 
 COMMIT;
 

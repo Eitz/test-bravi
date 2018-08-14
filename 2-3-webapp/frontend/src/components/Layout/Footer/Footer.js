@@ -13,7 +13,7 @@ export default class Header extends PureComponent {
      <ol>
       <li>
        <Link to="/">
-        Bravi Test
+        Contacts Test
        </Link>
       </li>
      </ol>

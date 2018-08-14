@@ -8,11 +8,12 @@ services:
   ports:
    - 80:80
   volumes:
-   - ./frontend/:/apps/test-bravi/frontend/
+   - ./frontend/:/apps/test-contacts/frontend/
   depends_on:
-   - mysql
+   - mysql-db
+   - backend
   networks:
-   - bravi-network
+   - contacts-network
  backend:
   image: backend
   build:
@@ -21,16 +22,16 @@ services:
   ports:
    - 5000:5000
   depends_on:
-   - mysql
+   - mysql-db
   expose:
    - "5000"
   networks:
-   - bravi-network
+   - contacts-network
   environment:
-   MYSQL_HOST: "mysql"
- mysql:
-  image: mysql
-  command: --default-authentication-plugin=mysql_native_password
+   MYSQL_HOST: "mysql-db"
+ mysql-db:
+  image: mysql:5.7.22
+  command: ['--default-authentication-plugin=mysql_native_password', '--log_error_verbosity=1']
   restart: always
   ports:
    - 3306:3306
@@ -42,8 +43,8 @@ services:
     - ./database/prepare-db/:/docker-entrypoint-initdb.d/
     - ./database/persistence:/var/lib/mysql
   networks:
-   - bravi-network
+   - contacts-network
 
 networks:
- bravi-network:
+ contacts-network:
   driver: bridge

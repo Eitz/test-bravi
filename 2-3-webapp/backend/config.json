@@ -2,9 +2,9 @@
 	"database": {
 		"port": 3306,
 		"host": "localhost",
-		"user": "root",
+		"user": "contacts-user",
 		"password": "123456",
-		"database": "bravi-test"
+		"database": "contacts_test"
 	},
 	"port" : 5000
 }

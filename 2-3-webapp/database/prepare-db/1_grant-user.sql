@@ -1,2 +1,2 @@
-CREATE USER 'bravi-user'@'%' IDENTIFIED BY '123456';
-GRANT ALL ON `bravi-test`.* TO 'bravi-user'@'%';
+CREATE USER 'contacts-user'@'%' IDENTIFIED BY '123456';
+GRANT ALL ON `contacts_test`.* TO 'contacts-user'@'%';

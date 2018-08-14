@@ -41,11 +41,11 @@ module.exports = class DB {
 				connection.release();
 			})
 			.catch(err => {
-				console.error('\x1b[33m[mysql]\x1b[39m Error connecting:', err.message, '\nTrying to connect again in 3 secs...');
-				console.error(err);
+				console.error('\x1b[33m[mysql]\x1b[39m Error connecting (', err.message, ') Trying to connect again in 7 secs...');
+				// console.error(err);
 				setTimeout(() => {
 					DB.init(props);
-				}, 3000);
+				}, 7000);
 			});
 	}
 

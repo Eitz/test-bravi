@@ -33,7 +33,7 @@ export default class Breadcrumb extends PureComponent {
 				<StructuralContainer>
 					<ol>
 						<li className="Breadcrumb-item">
-							<Link to='/'>Bravi Test</Link>
+							<Link to='/'>Contacts Test</Link>
 						</li>
 						{this.props.links && this.props.links.length ? this.renderLinks() : null}
 					</ol>

@@ -1,18 +1,16 @@
 FROM node:10.8.0
 
-RUN mkdir -p /apps/test-bravi/backend
+RUN mkdir -p /apps/test-contacts/backend
 
-RUN apt-get -q update && apt-get -qy install netcat
+RUN apt-get update -qq -o=Dpkg::Use-Pty=0 && apt-get install -qqy -o=Dpkg::Use-Pty=0 netcat
 RUN npm i npm@latest -g
 
-WORKDIR /apps/test-bravi/backend/
+WORKDIR /apps/test-contacts/backend/
 
 COPY package.json package-lock.json* ./
 RUN npm install && npm cache clean --force
-ENV PATH /apps/test-bravi/backend/node_modules/.bin:$PATH
+ENV PATH /apps/test-contacts/backend/node_modules/.bin:$PATH
 
-COPY . /apps/test-bravi/backend/
+COPY . /apps/test-contacts/backend/
 
-RUN chmod +x ./config/wait-for-it.sh
-
-CMD ["sh", "-c", "./config/wait-for-it.sh mysql:3306 -- nodemon server.js"]
+CMD ["sh", "-c", "nodemon server.js"]

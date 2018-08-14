@@ -13,7 +13,7 @@ class Header extends PureComponent {
 				<StructuralContainer>
 					<Link to="/">
 						<Logo />
-						Bravi Test
+						Contacts Test
 					</Link>
 				</StructuralContainer>
 			</header>
