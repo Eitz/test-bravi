@@ -62,12 +62,14 @@ export default class FormPerson extends Component {
 	}
 
 	renderError(field, index) {
-		for (let err of this.props.personOperation.errors) {
-			if (err.field === field) {
-				if (index === undefined || index === null || index === err.index) {
-					return <span className="TextError">{err.text}</span>;
-				}
-			} 
+		if (this.props.personOperation && this.props.personOperation.errors) {
+			for (let err of this.props.personOperation.errors) {
+				if (err.field === field) {
+					if (index === undefined || index === null || index === err.index) {
+						return <span className="TextError">{err.text}</span>;
+					}
+				} 
+			}
 		}
 		return null;
 	}

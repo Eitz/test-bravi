@@ -3,28 +3,34 @@ import request from './request';
 const PUBLIC_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
 
 export const actionsList = {
-	LOAD_PERSONS: 'LOAD_PERSONS',
-	LOAD_PERSON: 'LOAD_PERSON',
+	PERSON_LIST: 'PERSON_LIST',
+	PERSON_RETRIEVE: 'PERSON_RETRIEVE',
 	
-	CREATE_PERSON: 'CREATE_PERSON',
-	UPDATE_PERSON: 'UPDATE_PERSON',
+	PERSON_CREATE: 'PERSON_CREATE',
+	PERSON_UPDATE: 'PERSON_UPDATE',
 	DESTROY_PERSON: 'DESTROY_PERSON'
 };
 
 export const loadPersons = props => {
 	return {
-		type: actionsList.LOAD_PERSONS,
+		type: actionsList.PERSON_LIST,
 		payload: {
 			promise: request(`${PUBLIC_URL}/api/v1/person`)
+		},
+		meta: {
+			globalError: true
 		}
 	};
 };
 
 export const loadPerson = props => {
 	return {
-		type: actionsList.LOAD_PERSON,
+		type: actionsList.PERSON_RETRIEVE,
 		payload: {
 			promise: request(`${PUBLIC_URL}/api/v1/person/${props.id}`)
+		},
+		meta: {
+			globalError: true
 		}
 	};
 };
@@ -39,9 +45,12 @@ export const createPerson = props => {
 		body: JSON.stringify({person : props.person })
 	};
 	return {
-		type: actionsList.CREATE_PERSON,
+		type: actionsList.PERSON_CREATE,
 		payload: {
 			promise: request(`${PUBLIC_URL}/api/v1/person`, opts)
+		},
+		meta: {
+			globalError: true
 		}
 	};
 };
@@ -56,9 +65,12 @@ export const updatePerson = props => {
 		body: JSON.stringify({ person : props.person })
 	};
 	return {
-		type: actionsList.CREATE_PERSON,
+		type: actionsList.PERSON_UPDATE,
 		payload: {
 			promise: request(`${PUBLIC_URL}/api/v1/person/${props.person.id}`, opts)
+		},
+		meta: {
+			globalError: true
 		}
 	};
 };
@@ -77,7 +89,8 @@ export const destroyPerson = props => {
 			promise: request(`${PUBLIC_URL}/api/v1/person/${props.id}`, opts)
 		},
 		meta : {
-			id: props.id
+			id: props.id,
+			globalError: true
 		}
 	};
 };
@@ -85,6 +98,6 @@ export const destroyPerson = props => {
 
 export const finalizePersonOperation = props => {
 	return {
-		type: actionsList.CREATE_PERSON + '_END',
+		type: actionsList.PERSON_CREATE + '_END',
 	};
 };
