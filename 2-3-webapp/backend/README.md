@@ -7,7 +7,7 @@
 
 # Rodando em ambiente Dev
 
-	`$ npm run dev`
+	`$ npm run devel`
 
 # Rodando em ambiente de produção
 
